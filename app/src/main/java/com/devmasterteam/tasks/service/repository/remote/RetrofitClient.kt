@@ -17,17 +17,14 @@ class RetrofitClient private constructor() {
         private fun getRetrofitInstance(): Retrofit {
             val httpCliente = OkHttpClient.Builder()
 
-            httpCliente.addInterceptor(object : Interceptor {
-                override fun intercept(chain: Interceptor.Chain): Response {
-                    val request = chain.request()
-                        .newBuilder()
-                        .addHeader(TaskConstants.HEADER.TOKEN_KEY, token)
-                        .addHeader(TaskConstants.HEADER.PERSON_KEY, personKey)
-                        .build()
-                    return chain.proceed(request)
-                }
-
-            })
+            httpCliente.addInterceptor { chain ->
+                val request = chain.request()
+                    .newBuilder()
+                    .addHeader(TaskConstants.HEADER.TOKEN_KEY, token)
+                    .addHeader(TaskConstants.HEADER.PERSON_KEY, personKey)
+                    .build()
+                chain.proceed(request)
+            }
 
             if (!::INSTANCE.isInitialized) {
                 synchronized(RetrofitClient::class) {

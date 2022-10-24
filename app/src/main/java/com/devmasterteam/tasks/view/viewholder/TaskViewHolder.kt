@@ -29,7 +29,9 @@ class TaskViewHolder(private val itemBinding: RowTaskListBinding, val listener: 
         }
 
         // Eventos
-         itemBinding.textDescription.setOnClickListener { listener.onListClick(task.id) }
+         itemBinding.textDescription.setOnClickListener {
+             listener.onListClick(task.id)
+         }
          itemBinding.imageTask.setOnClickListener {
              if(task.complete){
                  listener.onUndoClick(task.id)

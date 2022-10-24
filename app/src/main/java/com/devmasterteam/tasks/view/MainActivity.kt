@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
     private fun observe() {
         viewModel.name.observe(this) {
            val header =  binding.navView.getHeaderView(0)
-            header.findViewById<TextView>(R.id.text_name).text = it
+            header.findViewById<TextView>(R.id.text_name).text = it.replaceFirstChar { it.uppercase() }
         }
     }
 }

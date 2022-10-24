@@ -37,6 +37,7 @@ class AllTasksFragment : Fragment() {
         taskFilter = requireArguments().getInt(TaskConstants.BUNDLE.TASKFILTER,0)
 
         val listener = object : TaskListener{
+
             override fun onListClick(id: Int) {
                 val intent=Intent(context,TaskFormActivity::class.java)
                 val bundle = Bundle()
@@ -61,7 +62,6 @@ class AllTasksFragment : Fragment() {
              adapter.attachListener(listener)
 
 
-        // Cria os observadores
         observe()
 
         return binding.root

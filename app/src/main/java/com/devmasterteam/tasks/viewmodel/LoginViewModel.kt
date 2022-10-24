@@ -50,7 +50,7 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
 
     /**
-     * Verifica se usuário está logado
+     * Verifica se usuário está logad
      */
     fun verifyLoggedUser() {
        val token = securityPreferemces.get(TaskConstants.SHARED.TOKEN_KEY)

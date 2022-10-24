@@ -37,7 +37,7 @@ class TaskFormActivity : AppCompatActivity(), View.OnClickListener,DatePickerDia
         binding.buttonDate.setOnClickListener(this)
 
         viewModel.loadPriorities()
-loadDataFromActivity()
+        loadDataFromActivity()
 
         observe()
 
